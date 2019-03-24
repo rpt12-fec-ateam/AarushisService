@@ -9,9 +9,10 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "seed": "node db/index.js"
+    "db": "node db/index.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mysql": "^2.16.0",
     "react": "^16.8.4"

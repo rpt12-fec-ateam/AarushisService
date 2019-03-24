@@ -1,4 +1,4 @@
-// const connection = require('./index.js');
+const connection = require('./index.js');
 
 // const stars = [1,2,3,4,5];
 // const userFirstNames = ['Oliver', 'Harry', 'Jack', 'James', 'Noah', 'Charlie', 'Jacob', 'Alfie', 'Fred', 'Logan', 'Olivia', 'Amelia', 'Emily', 'Ava', 'Lily', 'Mia', 'Angie', 'Ella', 'Connie', 'Britney', 'Christina', 'Justin', 'Beyonce', 'Alice', 'Shirley', 'Harper', 'Willow', 'Rose', 'Matilda', 'Hermione', 'Debbie', 'Sarah', 'Hanna', 'Melissa', 'Ashley', 'Jessica'];
@@ -10,3 +10,9 @@
 
 // var randomReview = {};
 
+var seed = () => {
+  connection.query('LOAD DATA')
+}
+
+
+seed();
