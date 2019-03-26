@@ -39,7 +39,7 @@ connection.query('USE fec', (error, results) => {
 // })
 
 
-connection.query('CREATE TABLE IF NOT EXISTS reviews (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, item_id int NOT NULL, userFirstName VARCHAR(20), userLastInitial VARCHAR(1), stars INT, header VARCHAR(20), review VARCHAR(500), tips VARCHAR(200), date DATE)', (error, results) => {
+connection.query('CREATE TABLE IF NOT EXISTS reviews (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, item_id int NOT NULL, userFirstName VARCHAR(20), userLastInitial VARCHAR(1), stars INT, header VARCHAR(20), review VARCHAR(500), tips VARCHAR(200), date VARCHAR(20))', (error, results) => {
   if (error) {
     console.log('error in creating reviews table', error);
   } else {
@@ -86,20 +86,13 @@ for (var i = 0; i < 500; i++) {
   }
 
   randomReview.tip = tipWords.join(' ');
-  randomReview.date = randomDate(new Date(2017, 0, 1), new Date());
+  randomReview.date = randomDate(new Date(2017, 0, 1), new Date()).toDateString();
   randomReview.item = Math.floor(Math.random() * 100);
   randomReviews.push(randomReview);
 }
 
-
-for (var j = 0; j < randomReviews.length; j++) {
-
-}
-
-var reviews = JSON.stringify(randomReviews);
-
 module.exports.connection = connection;
-module.exports.reviews = reviews;
+module.exports.randomReviews = randomReviews;
 
 
 

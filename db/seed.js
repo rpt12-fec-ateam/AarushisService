@@ -1,18 +1,20 @@
-const connection = require('./index.js');
+const mysql = require('mysql');
+const db = require('./index.js');
+const connection = db.connection;
+const reviews = db.randomReviews;
 
-// const stars = [1,2,3,4,5];
-// const userFirstNames = ['Oliver', 'Harry', 'Jack', 'James', 'Noah', 'Charlie', 'Jacob', 'Alfie', 'Fred', 'Logan', 'Olivia', 'Amelia', 'Emily', 'Ava', 'Lily', 'Mia', 'Angie', 'Ella', 'Connie', 'Britney', 'Christina', 'Justin', 'Beyonce', 'Alice', 'Shirley', 'Harper', 'Willow', 'Rose', 'Matilda', 'Hermione', 'Debbie', 'Sarah', 'Hanna', 'Melissa', 'Ashley', 'Jessica'];
-// const userLastInitials = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-// const headers = ['Yummy', 'Gross', 'Delicious', 'Zesty', 'Sweet', 'Sour', 'Spicy', 'Refreshing', 'Healthy and Tasty', 'Too Healthy', 'Tasty', 'Weird'];
-// const dates = [];
-// const review = [];
-// const tips = [];
 
-// var randomReview = {};
-
-var seed = () => {
-  connection.query('LOAD DATA')
+const seed = function(arrayOfReviews) {
+  for (var i = 0; i < arrayOfReviews.length; i++) {
+    connection.query(`INSERT INTO reviews (item_id, userFirstName, userLastInitial, stars, header, review, tips, date) VALUES (${arrayOfReviews[i].item}, "${arrayOfReviews[i].userFirstName}", "${arrayOfReviews[i].userLastInitial}", ${arrayOfReviews[i].stars}, "${arrayOfReviews[i].header}", "${arrayOfReviews[i].review}", "${arrayOfReviews[i].tip}", "${arrayOfReviews[i].date}" )`, function(error, results) {
+      if (error) {
+        console.log('error in seeding data', error);
+      } else {
+      console.log('added seed data');
+      }
+    }) 
+  }
 }
 
 
-seed();
+seed(reviews);

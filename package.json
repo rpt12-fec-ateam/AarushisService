@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "db": "node db/index.js"
+    "seed": "node db/seed.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
