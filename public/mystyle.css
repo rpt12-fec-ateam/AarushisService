@@ -1,0 +1,19 @@
+#title {
+  font-weight: bold;
+}
+
+body {
+    font-family: Sailec, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    text-align: center;
+}
+
+#price {
+  font-family: "Space Mono";
+  font-size: 12px;
+}
+
+#overall-rating {
+  font-weight: bold;
+}

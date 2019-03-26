@@ -30,13 +30,13 @@ connection.query('USE fec', (error, results) => {
   }
 });
 
-// connection.query('CREATE TABLE IF NOT EXISTS items (id int NOT NULL AUTO_INCREMENT PRIMARY KEY', function(error, results) {
-//   if (error) {
-//     console.log('error in creating items table', error);
-//   } else {
-//     console.log('items table created')
-//   }
-// })
+connection.query('CREATE TABLE IF NOT EXISTS items (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), price DECIMAL(4,2))', function(error, results) {
+  if (error) {
+    console.log('error in creating items table', error);
+  } else {
+    console.log('items table created')
+  }
+})
 
 
 connection.query('CREATE TABLE IF NOT EXISTS reviews (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, item_id int NOT NULL, userFirstName VARCHAR(20), userLastInitial VARCHAR(1), stars INT, header VARCHAR(20), review VARCHAR(500), tips VARCHAR(200), date VARCHAR(20))', (error, results) => {
