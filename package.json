@@ -12,6 +12,7 @@
     "seed": "node db/seed.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mysql": "^2.16.0",
     "react": "^16.8.4"
