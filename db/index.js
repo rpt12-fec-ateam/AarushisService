@@ -30,7 +30,7 @@ connection.query('USE fec', (error, results) => {
   }
 });
 
-connection.query('CREATE TABLE IF NOT EXISTS items (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), price DECIMAL(4,2))', function(error, results) {
+connection.query('CREATE TABLE IF NOT EXISTS items (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(40), price DECIMAL(4,2))', function(error, results) {
   if (error) {
     console.log('error in creating items table', error);
   } else {

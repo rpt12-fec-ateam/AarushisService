@@ -42,19 +42,24 @@ for (var i = 0; i < 500; i++) {
   randomReviews.push(randomReview);
 }
 
-let itemNames = [];
+let items = [];
 for (var i = 0; i < 100; i++) {
-  let itemName = {};
-  itemName.length = Math.floor(Math.random() * 4);
-  itemName.start = veggieIpsumArray[Math.floor(Math.random() *  100)];
-
+  let item = {};
+  let itemName = [];
+  let length = Math.floor(Math.random() * (4 - 1) + 1);
+  let start = Math.floor(Math.random() *  100);
+  let end = start + length;
+  for (var j = start; j < end; j++) {
+    itemName.push(veggieIpsumArray[j]);
+  }
+  item.name = itemName.join(' ');
+  let price = Math.floor(Math.random() * (15 - 3) + 3);
+  item.price =  JSON.stringify(price) + '.99';
+  items.push(item);
 }
 
 
 const seed = function(arrayOfReviews) {
-  for (var j = 0; j < 100; j++) {
-    connection.query()
-  }
   for (var i = 0; i < arrayOfReviews.length; i++) {
     connection.query(`INSERT INTO reviews (item_id, userFirstName, userLastInitial, stars, header, review, tips, date) VALUES (${arrayOfReviews[i].item}, "${arrayOfReviews[i].userFirstName}", "${arrayOfReviews[i].userLastInitial}", ${arrayOfReviews[i].stars}, "${arrayOfReviews[i].header}", "${arrayOfReviews[i].review}", "${arrayOfReviews[i].tip}", "${arrayOfReviews[i].date}" )`, function(error, results) {
       if (error) {
@@ -66,5 +71,18 @@ const seed = function(arrayOfReviews) {
   }
 }
 
+const seedItems = function(arrayOfItems) {
+  for (var j = 0; j < arrayOfItems.length; j++) {
+    connection.query(`INSERT INTO items (name, price) VALUES ("${arrayOfItems[j].name}", "${arrayOfItems[j].price}")`, function (error, results) {
+      if (error) {
+        console.log('error in seeding items data', error);
+      } else {
+        console.log('added item data');
+      }
+    })
+  }
+}
+
 
 seed(randomReviews);
+seedItems(items);
