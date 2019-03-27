@@ -1,19 +1,32 @@
 #title {
   font-weight: bold;
+  text-align: center;
 }
 
 body {
     font-family: Sailec, sans-serif;
     font-size: 14px;
     font-style: normal;
-    text-align: center;
+    padding-left: 15%;
+    padding-right: 40%;
 }
 
 #price {
   font-family: "Space Mono";
   font-size: 12px;
 }
-
+#overall {
+  border-top: 1px solid gray;
+}
 #overall-rating {
   font-weight: bold;
+  font-size: 16px;
+}
+
+#overall-row {
+  border-bottom: 1px solid gray
+}
+
+.overall-table {
+  border-bottom: 1px solid gray
 }

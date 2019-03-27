@@ -1,13 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import Ratings from 'react-ratings-declarative';
 
 const Overall = (props) => {
 
     return (
-      <div>
+      <div id="overall">
+      <h3 id="title">REVIEWS</h3>
+      <table className="overall-table">
+      <tr id="overall-row">
+        <td className="left">
         <p id="overall-rating">Overall Rating:</p>
-        <p id="price">Based on reviews, starting at $6.99 per cup</p>
+        {/* <Ratings
+          rating={3}
+          starRatedColor="blue"
+          numberOfStars={5}
+          name='rating'
+        /> */}
+        <p id="price">[ITEM NAME], based on [# OF REVIEWS] reviews, starting at [PRICE] per cup</p>
+        </td>
+        <td className="right">
         <div>We'd love to read your review, add this to a future delivery in order to review it.</div>
+        </td>
+      </tr>
+      </table>
       </div>
     )
 

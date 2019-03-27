@@ -16,12 +16,12 @@ function randomDate(start, end) {
 
 for (var i = 0; i < 500; i++) {
   let randomReview = {};
-  randomReview.stars = Math.floor(Math.random() * 5);
+  randomReview.stars = Math.floor(Math.random() * (6 - 1) + 1);
   randomReview.userFirstName = userFirstNames[Math.floor(Math.random() * userFirstNames.length)];
   randomReview.userLastInitial = userLastInitials[Math.floor(Math.random() * userLastInitials.length)];
   randomReview.header = headers[Math.floor(Math.random() * headers.length)];
   let reviewStart = Math.floor(Math.random() * (veggieIpsumArray.length - 50));
-  let reviewLength = Math.floor(Math.random() * 50);
+  let reviewLength = Math.floor(Math.random() * (50 - 5) + 5);
   let reviewEnd = reviewStart + reviewLength;
   let reviewWords = [];
   for (let i = reviewStart; i < reviewEnd; i++) {
