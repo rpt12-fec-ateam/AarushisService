@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Stars from './stars.jsx';
 // import StarRatings from './react-star-ratings';
 
 const Reviews = (props) => {
@@ -10,14 +11,14 @@ const Reviews = (props) => {
         <tr className="review-row">
           <td className="left-review">
           <div className="stars">
-            {props.stars}
+            <Stars stars={props.stars}/>
           </div>
           <div className="header">
             {props.header}
           </div>
           <br></br>
           <div className="date">
-            {props.date}
+            {props.date.slice(4)}
           </div>
           </td>
           <td className="right-review">

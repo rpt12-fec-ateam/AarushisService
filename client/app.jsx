@@ -2,6 +2,7 @@ import React from 'react';
 import Overall from './components/overall.jsx';
 import Reviews from './components/reviews.jsx';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 // import StarRatings from './react-star-ratings';
 
 class App extends React.Component{
@@ -36,7 +37,7 @@ class App extends React.Component{
   render() {
     return (
       <div>
-        <Overall />  
+        <Overall items={this.state.items} reviews={this.state.reviews}/>  
         {this.state.reviews.map(review => <Reviews header={review.header} date={review.date} userFirstName={review.userFirstName} userLastInitial={review.userLastInitial} review={review.review} stars={review.stars} tips={review.tips}/>)}
       </div>
     )

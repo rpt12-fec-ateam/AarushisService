@@ -16,7 +16,7 @@ const Overall = (props) => {
           numberOfStars={5}
           name='rating'
         /> */}
-        <p id="price">[ITEM NAME], based on [# OF REVIEWS] reviews, starting at [PRICE] per cup</p>
+        <p id="price">{props.items.length}, based on {props.reviews.length} reviews, starting at {props.items.length} per cup</p>
         </td>
         <td className="right">
         <div>We'd love to read your review, add this to a future delivery in order to review it.</div>
