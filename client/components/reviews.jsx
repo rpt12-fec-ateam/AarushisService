@@ -27,8 +27,11 @@ const Reviews = (props) => {
             </div>
             <br></br>
             <div>
-              {props.tips.length === 0 ? "" : `Tips: ${props.tips}`}
+              {props.tips.length === 0 ? "" : `Tips:`}
             </div>  
+            <div>
+            {props.tips.length === 0 ? "" : `${props.tips}`}
+            </div>
             <br></br>
             <br></br>
             <div className="username">

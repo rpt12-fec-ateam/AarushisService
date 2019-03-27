@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from './stars.jsx';
 // import Ratings from 'react-ratings-declarative';
 
 const Overall = (props) => {
@@ -10,12 +11,7 @@ const Overall = (props) => {
       <tr id="overall-row">
         <td className="left">
         <p id="overall-rating">Overall Rating:</p>
-        {/* <Ratings
-          rating={3}
-          starRatedColor="blue"
-          numberOfStars={5}
-          name='rating'
-        /> */}
+        <Stars />
         <p id="price">{props.items.length}, based on {props.reviews.length} reviews, starting at {props.items.length} per cup</p>
         </td>
         <td className="right">
