@@ -37,7 +37,7 @@ class App extends React.Component{
     return (
       <div>
         <Overall />  
-        {this.state.reviews.map(review => <Reviews review={review.review} stars={review.stars}/>)}
+        {this.state.reviews.map(review => <Reviews header={review.header} date={review.date} userFirstName={review.userFirstName} userLastInitial={review.userLastInitial} review={review.review} stars={review.stars} tips={review.tips}/>)}
       </div>
     )
   }

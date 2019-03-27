@@ -30,3 +30,19 @@ body {
 .overall-table {
   border-bottom: 1px solid gray
 }
+
+.left-review {
+  width: 45%
+}
+
+.right-review {
+  width: 55%
+}
+
+.review-row {
+  border-top: 1px solid gray
+}
+
+.username {
+  font-weight: bold;
+}
