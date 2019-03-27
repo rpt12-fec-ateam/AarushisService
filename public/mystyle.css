@@ -36,13 +36,22 @@ body {
 }
 
 .right-review {
-  width: 55%
+  width: 55%;
 }
 
-.review-row {
-  border-top: 1px solid gray
+.left-review {
+  border-bottom: 1px solid gray;
 }
 
 .username {
+  font-weight: bold;
+  border-bottom: 1px solid gray
+}
+
+.date {
+  font-size: 11px;
+}
+
+.header {
   font-weight: bold;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import StarRatings from './react-star-ratings';
 
 const Reviews = (props) => {
 
@@ -31,8 +32,9 @@ const Reviews = (props) => {
             <br></br>
             <div className="username">
               {props.userFirstName} {props.userLastInitial}
-            </div>  
             <br></br>
+            <br></br>
+            </div>  
           </td>
         </tr>        
       </div>
