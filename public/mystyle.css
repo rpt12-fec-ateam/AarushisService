@@ -1,0 +1,63 @@
+#title {
+  font-weight: bold;
+  text-align: center;
+}
+
+body {
+    font-family: Sailec, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    padding-left: 15%;
+    padding-right: 40%;
+}
+
+#price {
+  font-family: "Space Mono";
+  font-size: 12px;
+}
+#overall {
+  border-top: 1px solid gray;
+}
+#overall-rating {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#overall-row {
+  border-bottom: 1px solid gray;
+  width: 100%
+}
+
+.overall-table {
+  border-bottom: 1px solid gray
+}
+
+.left-review {
+  width: 35%
+}
+
+.right-review {
+  width: 65%;
+}
+
+.left-review {
+  border-bottom: 1px solid gray;
+}
+
+.username {
+  font-weight: bold;
+  border-bottom: 1px solid gray
+}
+
+.date {
+  font-size: 11px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.header {
+  font-weight: bold;
+}
+
+.tips1 {
+  font-family: "Courier New", Courier, monospace;
+}
