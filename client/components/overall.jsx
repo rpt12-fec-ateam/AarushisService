@@ -1,6 +1,6 @@
 import React from 'react';
 import Stars from './stars.jsx';
-// import Ratings from 'react-ratings-declarative';
+
 
 const Overall = (props) => {
 
@@ -10,8 +10,13 @@ const Overall = (props) => {
       <table className="overall-table">
       <tr id="overall-row">
         <td className="left">
-        <p id="overall-rating">Overall Rating:</p>
-        <Stars />
+        <p id="overall-rating">Overall Rating: {props.reviews.reduce( ([sum, count], {stars}, i) =>
+                        ([sum + i * stars, count + i]), [0, 0] )
+               .reduce( (sum, count) => Math.round((sum/count)*10)/10)}/5</p>
+        {/* <Stars stars={props.reviews.reduce( ([sum, count], {stars}, i) =>
+                        ([sum + i * stars, count + i]), [0, 0] )
+               .reduce( (sum, count) => (sum/count))}/> */}
+        <Stars stars={3.1}/>
         <p id="price">{props.items.length}, based on {props.reviews.length} reviews, starting at {props.items.length} per cup</p>
         </td>
         <td className="right">

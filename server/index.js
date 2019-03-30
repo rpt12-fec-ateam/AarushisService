@@ -13,7 +13,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 app.get('/allReviews', function(req, res) {
-  connection.query('SELECT * from reviews', function(error, results) {
+  console.log(req.headers.referer);
+  connection.query('SELECT * from reviews;', function(error, results) {
     if(error) {
       console.log('error in get/reviews', error);
     } else {
@@ -23,7 +24,7 @@ app.get('/allReviews', function(req, res) {
 })
 
 app.get('/allItems', function(req, res) {
-  connection.query('SELECT * from items', function(error, results) {
+  connection.query('SELECT * from items;', function(error, results) {
     if(error) {
       console.log('error in get/items', error);
     } else {

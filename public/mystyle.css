@@ -51,8 +51,13 @@ body {
 
 .date {
   font-size: 11px;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .header {
   font-weight: bold;
+}
+
+.tips1 {
+  font-family: "Courier New", Courier, monospace;
 }

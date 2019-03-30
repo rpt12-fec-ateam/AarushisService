@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Stars from './stars.jsx';
-// import StarRatings from './react-star-ratings';
+
 
 const Reviews = (props) => {
 
@@ -26,10 +25,10 @@ const Reviews = (props) => {
               {props.review}
             </div>
             <br></br>
-            <div>
+            <div className="tips1">
               {props.tips.length === 0 ? "" : `Tips:`}
             </div>  
-            <div>
+            <div className="tips2">
             {props.tips.length === 0 ? "" : `${props.tips}`}
             </div>
             <br></br>

@@ -3,7 +3,7 @@ import Overall from './components/overall.jsx';
 import Reviews from './components/reviews.jsx';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Link } from "react-router-dom";
-// import StarRatings from './react-star-ratings';
+
 
 class App extends React.Component{
   constructor(props) {
@@ -13,15 +13,17 @@ class App extends React.Component{
       items: [],
     }
     this.getReviews = this.getReviews.bind(this);
+    this.getItems = this.getItems.bind(this);
   }
 
   componentDidMount() {
     this.getReviews();
     this.getItems();
+    console.log(window.location.pathname);
   }
 
   getReviews() {
-    fetch('/allReviews')
+    fetch('/allReviews') //need to send window.location.pathway as url but how does it receive on server side?
     .then(data => data.json())
     .then(reviews => this.setState({reviews: reviews}))
   }
@@ -34,10 +36,12 @@ class App extends React.Component{
 
 
 
+
+
   render() {
     return (
       <div>
-        <Overall items={this.state.items} reviews={this.state.reviews}/>  
+        <Overall items={this.state.items} reviews={this.state.reviews}/>
         {this.state.reviews.map(review => <Reviews header={review.header} date={review.date} userFirstName={review.userFirstName} userLastInitial={review.userLastInitial} review={review.review} stars={review.stars} tips={review.tips}/>)}
       </div>
     )
