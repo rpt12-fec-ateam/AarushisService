@@ -15,32 +15,6 @@ configure({ adapter: new Adapter() });
 
 describe('App component', () => {
 
-  // beforeEach( () => {
-  //   App.prototype.componentDidMount = () => {
-  //     console.log('hi');
-  //   }
-  // })
-  // const fetch = global.fetch;
-
-  // beforeEach( () => {
-  //   let store = createStore(assets);
-  //   let a = store.dispatch({
-  //     type: Asset,
-  //     asset: [{'id': 1, 'title': 'TITLE'}]
-  //   });
-  //   store.getState().assets = a.assets;
-
-  //   global.fetch = () => {return Promise.resolve('', 200)};
-
-  //   home = TestUtils.renderIntoDocument(<App />)
-  // })
-
-  
-
-  test('tests should work', () => {
-    expect(true).toBe(true);  
-  });
-
   test('should have one Overall component', () => {
     const wrapper = shallow(<App />, {disableLifecycleMethods: true});
     expect(wrapper.find(Overall)).toHaveLength(1);
@@ -51,8 +25,19 @@ describe('App component', () => {
     expect(wrapper.find(Reviews)).toHaveLength(0);
   });
 
-  // afterEach( () => {
-  //   global.fetch = fetch;
-  // });
+  test('should have one Reviews component per review - 1 review', () => {
+    const wrapper = shallow(<App />, {disableLifecycleMethods: true});
+    wrapper.setState({reviews: [{name: 'Barbara', rating: 5}]})
+    expect(wrapper.find(Reviews)).toHaveLength(1);
+  });
+
+  test('should have one Reviews component per review - 5 reviews', () => {
+    const wrapper = shallow(<App />, {disableLifecycleMethods: true});
+    const reviews = [{name: 'Barbara', rating: 5}, {name: 'Snoop', rating: 3}, {name: 'Katy', rating: 2}, {name: 'Orlando', rating: 1}, {name: 'Connie', rating: 5}];
+    wrapper.setState({reviews: reviews});
+    expect(wrapper.find(Reviews)).toHaveLength(5);
+  });
+
+
 
 });
