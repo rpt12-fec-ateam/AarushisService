@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import Overall from '../components/overall.jsx';
 import Reviews from '../components/reviews.jsx';
+import Stars from '../components/stars.jsx';
 import App from '../render.jsx';
 jest.mock('node-fetch');
 
@@ -37,7 +38,5 @@ describe('App component', () => {
     wrapper.setState({reviews: reviews});
     expect(wrapper.find(Reviews)).toHaveLength(5);
   });
-
-
 
 });
