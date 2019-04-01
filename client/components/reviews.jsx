@@ -7,7 +7,7 @@ const Reviews = (props) => {
     return (
       <div>
         <br></br>
-        <tr className="review-row">
+        <tr className="review-row" key={props.id}>
           <td className="left-review">
           <div className="stars">
             <Stars stars={props.stars}/>
