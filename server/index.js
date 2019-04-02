@@ -16,13 +16,11 @@ app.use(bodyParser.urlencoded());
 app.get('/allReviews/item/:id', function(req, res) {
   let urlArray = (req.headers.referer.split('/'));
   let id = urlArray[4];
-  console.log(id);
   connection.query(`SELECT * from reviews WHERE item_id =${id};`, function(error, results) {
     if(error) {
       console.log('error in get/reviews', error);
     } else {
       res.send(results);
-      console.log(results);
     }
   })
 })
@@ -30,7 +28,6 @@ app.get('/allReviews/item/:id', function(req, res) {
 app.get('/allItems/item/:id', function(req, res) {
   let urlArray = (req.headers.referer.split('/'));
   let id = urlArray[4];
-  console.log(id);
   connection.query(`SELECT * from items WHERE id=${id};`, function(error, results) {
     if(error) {
       console.log('error in get/items', error);

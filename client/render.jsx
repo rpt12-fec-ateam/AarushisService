@@ -9,16 +9,15 @@ class App extends React.Component{
     super(props);
     this.state = {
       reviews: [],
-      items: {},
+      items: [],
     }
     this.getReviews = this.getReviews.bind(this);
     this.getItems = this.getItems.bind(this);
   }
 
   componentDidMount() {
-    this.getReviews();
     this.getItems();
-    console.log(this.state);
+    this.getReviews();
   }
 
   getReviews() {
@@ -44,7 +43,7 @@ class App extends React.Component{
   render() {
     return (
       <div>
-        <Overall name={this.state.items.name} price={this.state.items.price} reviews={this.state.reviews}/>
+        {this.state.items.map(item => <Overall name={item.name} price ={item.price} reviews={this.state.reviews}/>)}
         {this.state.reviews.map(review => <Reviews header={review.header} date={review.date} userFirstName={review.userFirstName} userLastInitial={review.userLastInitial} review={review.review} stars={review.stars} tips={review.tips}/>)}
       </div>
     )
