@@ -25,7 +25,7 @@ class App extends React.Component{
   }
 
   getReviews() {
-    fetch(`/allReviews${id}`) //need to send window.location.pathway as url but how does it receive on server side?
+    fetch(`/allReviews${id}`)
     .then(data => data.json())
     .then(reviews => this.setState({reviews: reviews}))
   }
