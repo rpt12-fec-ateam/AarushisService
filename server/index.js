@@ -14,8 +14,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 app.get('/allReviews', function(req, res) {
-  console.log(req.headers.referer);
-  connection.query('SELECT * from reviews;', function(error, results) {
+  let urlArray = (req.headers.referer.split('/'));
+  let id = urlArray[4];
+  console.log(id);
+  connection.query(`SELECT * from reviews WHERE item_id =${id};`, function(error, results) {
     if(error) {
       console.log('error in get/reviews', error);
     } else {
@@ -25,7 +27,10 @@ app.get('/allReviews', function(req, res) {
 })
 
 app.get('/allItems', function(req, res) {
-  connection.query('SELECT * from items;', function(error, results) {
+  let urlArray = (req.headers.referer.split('/'));
+  let id = urlArray[4];
+  console.log(id);
+  connection.query(`SELECT * from items WHERE id=${id};`, function(error, results) {
     if(error) {
       console.log('error in get/items', error);
     } else {

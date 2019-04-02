@@ -16,21 +16,22 @@ class App extends React.Component{
   }
 
   componentDidMount() {
-    console.log('window.location.pathname', window.location.pathname);
+    console.log(window.location);
     let id = window.location.pathname;
+    id === '/' ? id = '/item/1' : id;
     console.log(id);
     this.getReviews();
     this.getItems();
   }
 
   getReviews() {
-    fetch('/allReviews') //need to send window.location.pathway as url but how does it receive on server side?
+    fetch(`/allReviews${id}`) //need to send window.location.pathway as url but how does it receive on server side?
     .then(data => data.json())
     .then(reviews => this.setState({reviews: reviews}))
   }
 
   getItems() {
-    fetch('/allItems')
+    fetch(`/allItems${id}`)
     .then(data => data.json())
     .then(items => this.setState({items: items}))
   }
