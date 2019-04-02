@@ -16,7 +16,7 @@ const Overall = (props) => {
         {/* <Stars stars={props.reviews.reduce( ([sum, count], {stars}, i) =>
                         ([sum + i * stars, count + i]), [0, 0] )
                .reduce( (sum, count) => (sum/count))}/> */}
-        <Stars stars={3.1}/>
+        <Stars stars={3.5 /*need to fix this so it takes the actual computed average like in overall-rating*/}/> 
         <p id="price">{props.items.length}, based on {props.reviews.length} reviews, starting at {props.items.length} per cup</p>
         </td>
         <td className="right">
