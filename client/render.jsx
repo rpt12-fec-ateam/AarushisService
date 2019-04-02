@@ -16,6 +16,9 @@ class App extends React.Component{
   }
 
   componentDidMount() {
+    console.log('window.location.pathname', window.location.pathname);
+    let id = window.location.pathname;
+    console.log(id);
     this.getReviews();
     this.getItems();
   }
