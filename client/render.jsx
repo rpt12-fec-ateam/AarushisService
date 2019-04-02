@@ -16,21 +16,25 @@ class App extends React.Component{
   }
 
   componentDidMount() {
-    console.log(window.location);
-    let id = window.location.pathname;
-    id === '/' ? id = '/item/1' : id;
-    console.log(id);
+    // let id = window.location.pathname;
+    // (id === '/') ? id = '/item/1' : id;
     this.getReviews();
     this.getItems();
   }
 
   getReviews() {
+    let id = window.location.pathname;
+    (id === '/') ? id = '/item/1' : id;
+    console.log(id);
     fetch(`/allReviews${id}`)
     .then(data => data.json())
     .then(reviews => this.setState({reviews: reviews}))
   }
 
   getItems() {
+    let id = window.location.pathname;
+    (id === '/') ? id = '/item/1' : id;
+    console.log(id);
     fetch(`/allItems${id}`)
     .then(data => data.json())
     .then(items => this.setState({items: items}))
