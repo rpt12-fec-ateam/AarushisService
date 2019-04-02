@@ -9,23 +9,21 @@ class App extends React.Component{
     super(props);
     this.state = {
       reviews: [],
-      items: [],
+      items: {},
     }
     this.getReviews = this.getReviews.bind(this);
     this.getItems = this.getItems.bind(this);
   }
 
   componentDidMount() {
-    // let id = window.location.pathname;
-    // (id === '/') ? id = '/item/1' : id;
     this.getReviews();
     this.getItems();
+    console.log(this.state);
   }
 
   getReviews() {
     let id = window.location.pathname;
     (id === '/') ? id = '/item/1' : id;
-    console.log(id);
     fetch(`/allReviews${id}`)
     .then(data => data.json())
     .then(reviews => this.setState({reviews: reviews}))
@@ -34,7 +32,6 @@ class App extends React.Component{
   getItems() {
     let id = window.location.pathname;
     (id === '/') ? id = '/item/1' : id;
-    console.log(id);
     fetch(`/allItems${id}`)
     .then(data => data.json())
     .then(items => this.setState({items: items}))
@@ -47,7 +44,7 @@ class App extends React.Component{
   render() {
     return (
       <div>
-        <Overall items={this.state.items} reviews={this.state.reviews}/>
+        <Overall name={this.state.items.name} price={this.state.items.price} reviews={this.state.reviews}/>
         {this.state.reviews.map(review => <Reviews header={review.header} date={review.date} userFirstName={review.userFirstName} userLastInitial={review.userLastInitial} review={review.review} stars={review.stars} tips={review.tips}/>)}
       </div>
     )

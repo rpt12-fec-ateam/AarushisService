@@ -10,14 +10,11 @@ const Overall = (props) => {
       <table className="overall-table">
       <tr id="overall-row">
         <td className="left">
-        <p id="overall-rating">Overall Rating: {props.reviews.length !== 0 ? props.reviews.reduce( ([sum, count], {stars}, i) =>
+        <p id="overall-rating">{props.reviews.length !== 0 ? props.reviews.reduce( ([sum, count], {stars}, i) =>
                         ([sum + i * stars, count + i]), [0, 0] )
-               .reduce( (sum, count) => Math.round((sum/count)*10)/10) : 'no reviews'}/5</p>
-        {/* <Stars stars={props.reviews.reduce( ([sum, count], {stars}, i) =>
-                        ([sum + i * stars, count + i]), [0, 0] )
-               .reduce( (sum, count) => (sum/count))}/> */}
-               <Stars />
-        <p id="price">{props.items.name}, based on {props.reviews.length} reviews, starting at ${props.items.price} per cup</p>
+               .reduce( (sum, count) => 'Overall Rating: ' + Math.round((sum/count)*10)/10) + "/5" : 'No Reviews'}</p>
+        <Stars />
+        <p id="price">{props.name}, based on {props.reviews.length} reviews, starting at ${props.price} per cup</p>
         </td>
         <td className="right">
         <div>We'd love to read your review, add this to a future delivery in order to review it.</div>

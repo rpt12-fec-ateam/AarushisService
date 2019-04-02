@@ -40,6 +40,14 @@ body {
   width: 65%;
 }
 
+.left {
+  width: 35%
+}
+
+.right {
+  width: 65%;
+}
+
 .left-review {
   border-bottom: 1px solid gray;
 }
