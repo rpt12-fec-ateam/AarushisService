@@ -14,7 +14,9 @@ const Overall = (props) => {
         <p id="overall-rating">{props.reviews.length !== 0 ? props.reviews.reduce( ([sum, count], {stars}, i) =>
                         ([sum + 1 * stars, count + 1]), [0, 0] )
                .reduce( (sum, count) => 'Overall Rating: ' + Math.round((sum/count)*10)/10) + "/5" : 'No Reviews'}</p>
-        <Stars stars={Math.random() * (5 - 1) + 1}/>
+        <Stars stars={props.reviews.length !== 0 ? props.reviews.reduce( ([sum, count], {stars}, i) =>
+                        ([sum + 1 * stars, count + 1]), [0, 0] )
+               .reduce( (sum, count) => Math.round((sum/count)*10)/10) : 0}/>
         <p id="price">{props.name}, based on {props.reviews.length} reviews, starting at ${props.price} per cup</p>
         </td>
         <td className="right">
