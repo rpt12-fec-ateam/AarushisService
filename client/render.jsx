@@ -1,7 +1,7 @@
 import React from 'react';
 import Overall from './components/overall.jsx';
 import Reviews from './components/reviews.jsx';
-import ReactDOM from 'react-dom';
+
 
 
 class App extends React.Component{
@@ -10,6 +10,7 @@ class App extends React.Component{
     this.state = {
       reviews: [],
       items: [],
+      average: 0,
     }
     this.getReviews = this.getReviews.bind(this);
     this.getItems = this.getItems.bind(this);
@@ -37,13 +38,10 @@ class App extends React.Component{
   }
 
 
-
-
-
   render() {
     return (
       <div>
-        {this.state.items.map(item => <Overall name={item.name} price ={item.price} reviews={this.state.reviews}/>)}
+        {this.state.items.map(item => <Overall name={item.name} price ={item.price} reviews={this.state.reviews} average={this.state.average}/>)}
         {this.state.reviews.map(review => <Reviews header={review.header} date={review.date} userFirstName={review.userFirstName} userLastInitial={review.userLastInitial} review={review.review} stars={review.stars} tips={review.tips}/>)}
       </div>
     )
