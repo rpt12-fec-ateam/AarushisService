@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const path = require('path');
 
-const db = require('../db/index.js');
+const db = require('./db/index.js');
 const connection = db.connection;
 
 const app = express();
 
-app.use('/', express.static('/Users/aarushisharma/Desktop/AarushisService/public'));
-app.use('/item/:id', express.static('/Users/aarushisharma/Desktop/AarushisService/public'));
+app.use('/', express.static(__dirname + '/public'));
+app.use('/item/:id', express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
@@ -33,7 +33,6 @@ app.get('/allItems/item/:id', function(req, res) {
       console.log('error in get/items', error);
     } else {
       res.send(results);
-      console.log(results);
     }
   })
 })
