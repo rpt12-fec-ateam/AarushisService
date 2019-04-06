@@ -18,6 +18,7 @@ describe('App component', () => {
 
   test('should have one Overall component', () => {
     const wrapper = shallow(<App />, {disableLifecycleMethods: true});
+    wrapper.setState({items: [{name: 'Barbara', price: 5}]});
     expect(wrapper.find(Overall)).toHaveLength(1);
   });
   
