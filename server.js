@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
+const url =  require('url');
+const querystring = require('querystring');
 const path = require('path');
 
 const db = require('./db/index.js');
@@ -11,11 +13,10 @@ const app = express();
 app.use('/', express.static(__dirname + '/public'));
 app.use('/item/:id', express.static(__dirname + '/public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/allReviews/item/:id', function(req, res) {
-  let urlArray = (req.headers.referer.split('/'));
-  let id = urlArray[4];
+  let id = req.params.id;
   connection.query(`SELECT * from reviews WHERE item_id =${id};`, function(error, results) {
     if(error) {
       console.log('error in get/reviews', error);
@@ -26,8 +27,7 @@ app.get('/allReviews/item/:id', function(req, res) {
 })
 
 app.get('/allItems/item/:id', function(req, res) {
-  let urlArray = (req.headers.referer.split('/'));
-  let id = urlArray[4];
+  let id = req.params.id;
   connection.query(`SELECT * from items WHERE id=${id};`, function(error, results) {
     if(error) {
       console.log('error in get/items', error);
