@@ -4,7 +4,7 @@ import Reviews from './components/reviews.jsx';
 
 
 
-class App extends React.Component{
+class ComponentReviews extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +23,9 @@ class App extends React.Component{
 
   getReviews() {
     let id = window.location.pathname;
+    console.log('reviews', id);
     (id === '/') ? id = '/item/1' : id;
+    console.log('reviews', `/allReviews${id}`);
     fetch(`/allReviews${id}`)
     .then(data => data.json())
     .then(reviews => this.setState({reviews: reviews}))
@@ -31,7 +33,9 @@ class App extends React.Component{
 
   getItems() {
     let id = window.location.pathname;
+    console.log('items', id);
     (id === '/') ? id = '/item/1' : id;
+    console.log('items', id);
     fetch(`/allItems${id}`)
     .then(data => data.json())
     .then(items => this.setState({items: items}))
@@ -49,4 +53,4 @@ class App extends React.Component{
 
 }
 
-export default App;
+export default ComponentReviews;
