@@ -23,6 +23,14 @@ const OverallRow = styled.div`
   border-bottom: 1px solid gray;
 `;
 
+const Left = styled.td`
+  width: 300px;
+`;
+
+const Right = styled.td`
+  width: 500px;
+`;
+
 
 const Overall = (props) => {
 
@@ -33,6 +41,7 @@ const Overall = (props) => {
       </BoldedTitle>
       <OverallRow>
       <tr id="overall-row">
+      <Left>
         <td className="left">
         <Bolded>
         <p id="overall-rating">{props.reviews.length !== 0 ? props.reviews.reduce( ([sum, count], {stars}, i) =>
@@ -46,9 +55,12 @@ const Overall = (props) => {
         <p id="price">{props.name}, based on {props.reviews.length} reviews, starting at ${props.price} per cup</p>
         </Description>
         </td>
+        </Left>
+        <Right>
         <td className="right">
         <div>We'd love to read your review, add this to a future delivery in order to review it.</div>
         </td>
+        </Right>
       </tr>
       </OverallRow>
       </div>
