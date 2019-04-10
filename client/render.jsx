@@ -1,8 +1,16 @@
 import React from 'react';
 import Overall from './components/overall.jsx';
 import Reviews from './components/reviews.jsx';
+import styled from 'styled-components';
 
-
+const Wrapper = styled.div`
+  font-family: Sailec, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  padding-left: 25%;
+  padding-right: 20%;
+  font-weight: lighter;
+`;
 
 class ComponentReviews extends React.Component{
   constructor(props) {
@@ -40,10 +48,10 @@ class ComponentReviews extends React.Component{
 
   render() {
     return (
-      <div>
+      <Wrapper >
         {this.state.items.map(item => <Overall name={item.name} price ={item.price} reviews={this.state.reviews} average={this.state.average}/>)}
         {this.state.reviews.map(review => <Reviews header={review.header} date={review.date} userFirstName={review.userFirstName} userLastInitial={review.userLastInitial} review={review.review} stars={review.stars} tips={review.tips}/>)}
-      </div>
+      </Wrapper>
     )
   }
 
