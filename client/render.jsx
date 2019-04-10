@@ -23,9 +23,7 @@ class ComponentReviews extends React.Component{
 
   getReviews() {
     let id = window.location.pathname;
-    console.log('reviews', id);
     (id === '/') ? id = '/item/1' : id;
-    console.log('reviews', `/allReviews${id}`);
     fetch(`/allReviews${id}`)
     .then(data => data.json())
     .then(reviews => this.setState({reviews: reviews}))
@@ -33,9 +31,7 @@ class ComponentReviews extends React.Component{
 
   getItems() {
     let id = window.location.pathname;
-    console.log('items', id);
     (id === '/') ? id = '/item/1' : id;
-    console.log('items', id);
     fetch(`/allItems${id}`)
     .then(data => data.json())
     .then(items => this.setState({items: items}))
@@ -54,3 +50,4 @@ class ComponentReviews extends React.Component{
 }
 
 export default ComponentReviews;
+window.ComponentReviews = ComponentReviews;

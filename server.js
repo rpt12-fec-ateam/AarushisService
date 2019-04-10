@@ -1,9 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const http = require('http');
-const url =  require('url');
-const querystring = require('querystring');
-const path = require('path');
 
 const db = require('./db/index.js');
 const connection = db.connection;
@@ -17,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/allReviews/item/:id', function(req, res) {
   let id = req.params.id;
+  console.log('*******************************', id);
   connection.query(`SELECT * from reviews WHERE item_id =${id};`, function(error, results) {
     if(error) {
       console.log('error in get/reviews', error);
@@ -28,6 +25,7 @@ app.get('/allReviews/item/:id', function(req, res) {
 
 app.get('/allItems/item/:id', function(req, res) {
   let id = req.params.id;
+  console.log('*******************************', id);
   connection.query(`SELECT * from items WHERE id=${id};`, function(error, results) {
     if(error) {
       console.log('error in get/items', error);
