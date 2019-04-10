@@ -23,6 +23,16 @@ const Tips = styled.div`
   font-weight: lighter;
 `;
 
+const LeftReview = styled.td`
+  width: 300px;
+  border-bottom: 1px solid gray;
+`;
+
+const RightReview = styled.td`
+  width: 500px;
+  border-bottom: 1px solid gray;
+`;
+
 
 
 const Reviews = (props) => {
@@ -31,6 +41,7 @@ const Reviews = (props) => {
       <div>
         <br></br>
         <tr className="review-row" key={props.id}>
+        <LeftReview>
           <td className="left-review">
           <div className="stars">
             <Stars stars={props.stars}/>
@@ -47,6 +58,8 @@ const Reviews = (props) => {
           </div>
           </Date>
           </td>
+          </LeftReview>
+          <RightReview>
           <td className="right-review">
             <div>
               {props.review}
@@ -70,6 +83,7 @@ const Reviews = (props) => {
             </div>  
             </Username>
           </td>
+          </RightReview>
         </tr>        
       </div>
     )
