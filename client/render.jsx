@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   font-style: normal;
   padding-left: 25%;
   padding-right: 20%;
+  font-weight: lighter;
 `;
 
 class ComponentReviews extends React.Component{

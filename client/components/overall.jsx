@@ -14,11 +14,12 @@ const BoldedTitle = styled.div`
 `;
 
 const Description = styled.div`
-  font-family: "Space Mono";
+  @import url('https://fonts.googleapis.com/css?family=Notable');
+  font-family: 'Space Mono', monospace;
   font-size: 12px;
 `;
 
-const OverallRow = styled.table` 
+const OverallRow = styled.div` 
   border-bottom: 1px solid gray;
 `;
 
