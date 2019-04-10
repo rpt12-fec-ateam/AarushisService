@@ -54,6 +54,7 @@ const Overall = (props) => {
         <Description>
         <p id="price">{props.name}, based on {props.reviews.length} reviews, starting at ${props.price} per cup</p>
         </Description>
+        <br></br>
         </td>
         </Left>
         <Right>
