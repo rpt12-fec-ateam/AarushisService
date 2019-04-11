@@ -51,7 +51,6 @@ const Reviews = (props) => {
             {props.header}
           </div>
           </Header>
-          <br></br>
           <Date>
           <div className="date">
             {props.date.slice(4)}

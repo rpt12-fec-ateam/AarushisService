@@ -8,9 +8,13 @@ const Bolded = styled.div`
 `;
 
 const BoldedTitle = styled.div`
-  font-weight: bold;
+  @import url('https://fonts.googleapis.com/css?family=Heebo:800');
+  font-family: 'Heebo', sans-serif;
+  font-size: 18px;
   text-align: center;
   border-top: 1px solid gray;
+  padding-top: 40px;
+  padding-bottom: 40px;
 `;
 
 const Description = styled.div`
